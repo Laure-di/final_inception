@@ -3,16 +3,16 @@
 mysql_install_db
 service mysql start
 if [ ! -d /var/lib/mysql/${MYSQL_DATABASE} ]; then
-#mysql_secure_installation<<EOF
-#
-#y
-#secret
-#secret
-#y
-#y
-#y
-#y
-#EOF
+mysql_secure_installation<<EOF
+
+y
+secret
+secret
+y
+y
+y
+y
+EOF
 until mysqladmin ping;do
 sleep 2
 done
