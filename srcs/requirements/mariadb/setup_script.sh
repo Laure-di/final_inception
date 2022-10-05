@@ -1,8 +1,7 @@
 #!/bin/sh
 
-mysql_install_db
-service mysql start
 if [ ! -d /var/lib/mysql/${MYSQL_DATABASE} ]; then
+service mysql start
 #mysql_secure_installation<<EOF
 #
 #y
