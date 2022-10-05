@@ -3,7 +3,7 @@
 mysql_install_db
 service mysql start
 
-if [ ! -d /var/lib/mysql/wp_wordpress ]; then
+if [ ! -d /var/lib/mysql/${MYSQL_DATABASE} ]; then
 mysql_secure_installation<<EOF
 
 y
@@ -27,4 +27,4 @@ echo "Database created!"
 else
 echo "The database already exist!"
 fi
-#service mysql stop
+service mysql stop
