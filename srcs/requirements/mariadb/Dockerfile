@@ -24,7 +24,7 @@ COPY ./setup_script.sh /root/setup_script.sh
 
 RUN	chmod +x /root/setup_script.sh
 
-ENTRYPOINT ["/root/setup_script.sh"]
+#ENTRYPOINT ["/root/setup_script.sh"]
 
 CMD		["mysqld_safe", "--datadir='/var/lib/mysql"]
 
