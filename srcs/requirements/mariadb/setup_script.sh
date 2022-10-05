@@ -16,6 +16,7 @@ EOF
 until mysqladmin ping;do
 sleep 2
 done
+mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY 'new_password'"
 mysql -u root -e "CREATE DATABASE ${MYSQL_DATABASE};"
 mysql -u root -e "CREATE USER '${MYSQL_ADMIN}'@'localhost' IDENTIFIED BY '${MYSQL_ADMIN_PASSWORD}';"
 mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO '${MYSQL_ADMIN}'@'localhost';"
