@@ -14,12 +14,12 @@ RUN sed -i "s/bind-address            = 127.0.0.1/bind-address            = 0.0.
 
 RUN sed -i "s+socket = /var/run/mysqld/mysqld.sock+socket = run/mysqld/mysqld.sock+g"
 
-RUN sed -i "s+socket = /var/run/mysqld/mysqld.sock+socket = run/mysqld/mysqld.sock+g"
+RUN sed -i "s+pid-file = /var/run/mysqld/mysqld.pid+pid-file = /run/mysqld/mysqld.pid+g"
 
 COPY ./setup_script.sh /root/setup_script.sh
 
 RUN	chmod +x /root/setup_script.sh
 
-#ENTRYPOINT ["/root/setup_script.sh"]
+ENTRYPOINT ["/root/setup_script.sh"]
 
 CMD		["mysqld_safe"]
