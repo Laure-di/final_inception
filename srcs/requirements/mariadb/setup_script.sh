@@ -24,7 +24,7 @@ mysql -e "DELETE FROM mysql.user WHERE user=''"
 mysql -e "DELETE FROM mysql.user WHERE user='root'"
 mysql -e "FLUSH PRIVILEGES;"
 echo "Database created!"
+killall mysqld
 else
 echo "The database already exist!"
 fi
-service mysql stop
