@@ -13,3 +13,5 @@ if [ ! -f /var/www/html/wp-config.php ]; then
 	else
 		echo "wordpress already created"
 fi
+
+exec "$@"
