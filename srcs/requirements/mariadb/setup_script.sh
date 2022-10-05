@@ -19,7 +19,7 @@ done
 mysql -u root -e "CREATE DATABASE ${MYSQL_DATABASE};"
 mysql -u root -e "CREATE USER '${MYSQL_ADMIN}'@'localhost' IDENTIFIED BY '${MYSQL_ADMIN_PASSWORD}';"
 mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO '${MYSQL_ADMIN}'@'localhost';"
-mysql -u root -e "CREATE USER '${MYSQL_USER}'@'localhost' IDENTIFIED BY '${MYSQL_PASSWORD}'; GRANT ALL ON ${MYSQL_DATABASE}.* TO '${MYSQL_USER}'@'localhost'"
+mysql -u root -e "CREATE USER '${MYSQL_USER}'@'localhost' IDENTIFIED BY '${MYSQL_PASSWORD}'; GRANT ALL ON wp_wordpress.* TO '${MYSQL_USER}'@'localhost'"
 mysql -e "DELETE FROM mysql.user WHERE user=''"
 mysql -e "DELETE FROM mysql.user WHERE user='root'"
 mysql -e "FLUSH PRIVILEGES;"
