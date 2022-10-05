@@ -16,11 +16,11 @@ if [ ! -d /var/lib/mysql/${MYSQL_DATABASE} ]; then
 until mysqladmin ping;do
 sleep 2
 done
-mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY ''"
 mysql -u root -e "CREATE DATABASE ${MYSQL_DATABASE};"
 mysql -u root -e "CREATE USER '${MYSQL_ADMIN}'@'localhost' IDENTIFIED BY '${MYSQL_ADMIN_PASSWORD}';"
 mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO '${MYSQL_ADMIN}'@'localhost';"
 mysql -u root -e "CREATE USER '${MYSQL_USER}'@'localhost' IDENTIFIED BY '${MYSQL_PASSWORD}'; GRANT ALL ON ${MYSQL_DATABASE}.* TO '${MYSQL_USER}'@'localhost'"
+mysql -u root -e "SET PASSWORD FOR 'root'@'localhost'=PASSWORD('coucou')"
 mysql -u root -e "FLUSH PRIVILEGES;"
 echo "Database created!"
 else
