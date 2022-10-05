@@ -2,7 +2,7 @@
 if [ ! -f /var/www/html/wp-config.php ]; then
  	cd /var/www/html/
 	wp core download --allow-root
-	until mysqladmin -hmariadb -u${MYSQL_ADMIN} p${MYSQL_ADMIN_PASSWORD} ping;do
+	until mysqladmin -hmariadb -u${MYSQL_USER} p${MYSQL_PASSWORD} ping;do
 		echo "dodo"
 		sleep 2
 	done
