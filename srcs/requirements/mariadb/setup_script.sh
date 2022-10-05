@@ -1,7 +1,8 @@
 #!/bin/sh
 
 if [ ! -d /var/lib/mysql/${MYSQL_DATABASE} ]; then
-service mysql start
+mysqld&
+#service mysql start
 #mysql_secure_installation<<EOF
 #
 #y
@@ -23,7 +24,7 @@ mysql -e "DELETE FROM mysql.user WHERE user=''"
 mysql -e "DELETE FROM mysql.user WHERE user='root'"
 mysql -e "FLUSH PRIVILEGES;"
 echo "Database created!"
+killall mysqld
 else
 echo "The database already exist!"
 fi
-service mysql stop
