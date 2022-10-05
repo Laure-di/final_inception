@@ -4,7 +4,7 @@ RUN apt-get update
 
 RUN mkdir -p /var/www/html
 
-RUN apt-get install -y php7.3-fpm  php7.3-mysql php-common curl mariadb-client
+RUN apt-get install -y php7.3 php7.3-fpm  php7.3-mysql php-common curl mariadb-client
 
 RUN mkdir -p /run/php/
 
