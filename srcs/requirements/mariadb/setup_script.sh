@@ -28,3 +28,5 @@ killall mysqld
 else
 echo "The database already exist!"
 fi
+
+exec mysqld
