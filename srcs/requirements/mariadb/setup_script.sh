@@ -27,4 +27,5 @@ echo "Database created!"
 else
 echo "The database already exist!"
 fi
+sudo chmod 777 /var/run/mysqld/mysqld.sock
 service mysql stop
