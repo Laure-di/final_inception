@@ -26,6 +26,6 @@ RUN	chmod +x /root/setup_script.sh
 
 #ENTRYPOINT ["/root/setup_script.sh"]
 
-CMD		["mysqld_safe", "--datadir='/var/lib/mysql"]
+#CMD		["mysqld_safe", "--datadir='/var/lib/mysql"]
 
 
