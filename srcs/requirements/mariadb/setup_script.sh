@@ -22,7 +22,7 @@ mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO '${MYSQL_ADMIN}'@'localhost';"
 mysql -u root -e "CREATE USER '${MYSQL_USER}'@'localhost' IDENTIFIED BY '${MYSQL_PASSWORD}'; GRANT ALL ON ${MYSQL_DATABASE}.* TO '${MYSQL_USER}'@'localhost'"
 mysql -e "DELETE FROM mysql.user WHERE user=''"
 mysql -e "DELETE FROM mysql.user WHERE user='root'"
-mysql -u root -e "FLUSH PRIVILEGES;"
+mysql -e "FLUSH PRIVILEGES;"
 echo "Database created!"
 else
 echo "The database already exist!"
