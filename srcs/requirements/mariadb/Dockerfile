@@ -28,6 +28,6 @@ RUN	chmod +x /root/setup_script.sh
 
 #CMD		["mysqld_safe", "--datadir='/var/lib/mysql"]
 
-CMD		["bash", "/root/setup_script"]
+CMD		["bash", "/root/setup_script.sh"]
 
 
