@@ -29,7 +29,7 @@ RUN	chmod +x /root/setup_script.sh
 
 ENTRYPOINT ["bash", "/root/setup_script.sh"]
 
-CMD		["mysqld_safe"]
+CMD		["mysqld"]
 
 #CMD		["bash", "/root/setup_script.sh"]
 
