@@ -1,8 +1,8 @@
 NAME = inception
 
-WP_VOL = /home/lmasson/data/wp_vol/
+WP_VOL = /home/lmasson/data/wordpress/
 
-DB_VOL = /home/lmasson/data/db_vol/
+DB_VOL = /home/lmasson/data/mariadb/
 
 all:
 	cat /etc/hosts | if ! grep -P "127.0.0.1\tlmasson.42.fr"; then sudo sh -c 'echo "127.0.0.1\tlmasson.42.fr" >> /etc/hosts'; fi
