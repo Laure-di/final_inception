@@ -37,17 +37,18 @@
 
  networks:
   inception:
+	driver : bridge
 
  volumes:
   wp_vol:
    driver: local
    driver_opts:
     type: none
-    device: /home/lmasson/data/wp_vol
+    device: /home/lmasson/data/wordpress
     o: bind
   db_vol:
    driver: local
    driver_opts:
     type: none
-    device: /home/lmasson/data/db_vol
+    device: /home/lmasson/data/mariadb
     o: bind
