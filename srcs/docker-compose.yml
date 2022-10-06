@@ -37,7 +37,7 @@
 
  networks:
   inception:
-	driver : bridge
+   driver : bridge
 
  volumes:
   wp_vol:
