@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if [ ! -d /var/lib/mysql/wordpress ]; then
-	mysqld&
+	mysql service start
 	until mysqladmin ping;do
 		sleep 2
 	done
@@ -11,7 +11,7 @@ if [ ! -d /var/lib/mysql/wordpress ]; then
 	mysql -u root -e "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('${SUPER_PWD}')"
 	mysql -e "FLUSH PRIVILEGES;"
 	echo "Database created!"
-	killall mysqld
+	mysql service stop
 else
 	echo "The database already exist!"
 fi
