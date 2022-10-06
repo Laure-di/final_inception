@@ -1,8 +1,8 @@
 #!/bin/sh
-if [ ! -d /var/lib/mysql/wordpress ]
-then
+if [ ! -d /var/lib/mysql/wordpress ]; then
 	mysqld&
-	until mysqladmin ping;do
+	until mysqladmin ping;
+	do
 		sleep 2
 	done
 	mysql -u root -e "CREATE DATABASE IF NOT EXISTS wordpress;"
