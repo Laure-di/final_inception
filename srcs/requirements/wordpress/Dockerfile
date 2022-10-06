@@ -26,5 +26,5 @@ WORKDIR		/var/www/html/wordpress
 
 ENTRYPOINT	["bash", "/root/wp.sh"]
 
-CMD	["php-fpm7.3 ", "-F"]
+CMD	["php-fpm7.3 ", "-F", "-R"]
 
