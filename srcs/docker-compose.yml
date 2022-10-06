@@ -3,7 +3,7 @@
 
   nginx:
     build: ./requirements/nginx
-	image: nginx
+    image: nginx
     container_name: nginx
     ports:
      - "443:443"
@@ -17,7 +17,7 @@
     restart: on-failure
   wordpress:
     build: ./requirements/wordpress
-	image: wordpress
+    image: wordpress
     container_name: wordpress
     depends_on:
      - mariadb
@@ -29,7 +29,7 @@
     restart: on-failure
   mariadb:
     build: ./requirements/mariadb
-	image: mariadb
+    image: mariadb
     container_name: mariadb
     env_file: ./.env
     volumes:
