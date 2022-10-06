@@ -1,6 +1,7 @@
 #!/bin/sh
 mysql_install_db
-if [ ! -d /var/lib/mysql/wordpress ] then
+if [ ! -d /var/lib/mysql/wordpress ]
+then
 	mysqld&
 	until mysqladmin ping;do
 		sleep 2
