@@ -37,7 +37,9 @@ Declarer volume : https://stackoverflow.com/questions/35841241/docker-compose-na
 
 https://docs.docker.com/storage/volumes/
 
-
+## Mariadb
+Creation user and modification 50-server.cnf
+https://www.linuxtricks.fr/wiki/print.php?id=559
 
 
 Openssl : generate a CSR (Certificate Signing Request)
