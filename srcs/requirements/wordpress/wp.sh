@@ -1,5 +1,5 @@
 #!/bin/sh
-if [ ! -f /var/www/html/wp-config.php ]; then
+if [ ! -f /var/www/html/wordpress/wp-config.php ]; then
 	wp core download --allow-root
 	until mysqladmin -hmariadb -u${ADMIN} -p${ADMIN_PASSWORD} ping; do
         sleep 2
