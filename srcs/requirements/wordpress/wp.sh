@@ -1,6 +1,6 @@
 #!/bin/sh
 	wp core download --allow-root
-	until mysqladmin -hmariadb -u${DB_USER} -p${DB_USER_PASSWORD} ping; do
+	until mysqladmin -hmariadb -u${ADMIN} -p${ADMIN_PASSWORD} ping; do
         sleep 2
     done
 	wp config create --dbname=wordpress --dbuser=${ADMIN} --dbpass=${ADMIN_PASSWORD} --dbhost=mariadb --dbcharset="utf8" --dbcollate="utf8_general_ci" --allow-root
