@@ -4,9 +4,8 @@ RUN		apt-get update
 
 RUN		apt-get -y install mariadb-server
 
-#RUN		mkdir -p /var/run/mysqld && chown -R mysql:root /var/run/mysqld
-RUN mkdir -p /run/mysqld && chown -R mysql:root /run/mysqld && chown -R mysql:mysql /run/mysqld
 
+RUN mkdir -p /run/mysqld && chown -R mysql:root /run/mysqld && chown -R mysql:mysql /var/lib/mysql
 #RUN		mkdir -p /run/mysqld && chown -R mysql:root /run/mysqld
 
 #RUN		chmod 777 /var/run/mysqld
