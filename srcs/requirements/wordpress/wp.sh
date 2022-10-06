@@ -8,5 +8,6 @@ if [ ! -f /var/www/html/wp-config.php ]; then
 	wp core install --url=${WP_URL}/wordpress --title="${WP_TITLE}" --admin_user=${ADMIN} --admin_password=${ADMIN_PASSWD} --admin_email=${ADMIN_EMAIL} --skip-email --allow-root
 	wp user create ${USER_WP} ${USER_EMAIL_WP} --role=author --user_pass=${USER_WP_PASS} --allow-root
 	else
-	echo "wp already exist"
+		echo "wp already exist"
+fi
 exec "$@"
