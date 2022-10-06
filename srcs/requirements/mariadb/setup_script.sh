@@ -1,7 +1,7 @@
 #!/bin/sh
-
+mysql_install_db
 if [ ! -d /var/lib/mysql/wordpress ]; then
-	mysqld& --skip-grant-tables
+	mysqld&
 	until mysqladmin ping;do
 		sleep 2
 	done
