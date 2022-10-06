@@ -2,11 +2,11 @@ FROM debian:buster
 
 RUN apt-get update
 
-RUN apt-get install -y php-fpm php-mysql php-common curl mariadb-client
+RUN apt-get install -y php7.5-fpm php7.5-mysql php7.5-common curl mariadb-client
 
 RUN mkdir -p /run/php/
 
-COPY www.conf /etc/php/7.4/fpm/pool.d/
+COPY www.conf /etc/php/7.5/fpm/pool.d/
 
 RUN	curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 
@@ -26,5 +26,5 @@ WORKDIR		/var/www/html/wordpress
 
 ENTRYPOINT	["bash", "/root/wp.sh"]
 
-CMD	["php-fpm7.4", "-F", "-R"]
+CMD	["php7.5-fpm", "-F", "-R"]
 
