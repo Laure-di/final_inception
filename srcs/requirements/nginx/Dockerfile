@@ -9,7 +9,7 @@ RUN apt-get -y install procps
 # -y means "assume "yes" as answer to all prompts.
 #https://stackoverflow.com/questions/10175812/how-to-generate-a-self-signed-ssl-certificate-using-openssl
 
-COPY conf/nginx.conf /etc/nginx/sites-enabled/
+COPY nginx.conf /etc/nginx/sites-enabled/
 #https://wiki.debian.org/Nginx/DirectoryStructure#A.2Fetc.2Fnginx.2F
 
 RUN mkdir /etc/nginx/ssl 
