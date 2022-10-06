@@ -9,7 +9,7 @@ if [ ! -d /var/lib/mysql/wordpress ]; then
 	mysql -u root -e "CREATE USER IF NOT EXISTS '${ADMIN}'@'%' IDENTIFIED BY '${ADMIN_PASSWORD}';"
 	mysql -u root -e "GRANT USAGE ON wordpress.* TO '${ADMIN}'@'%' IDENTIFIED BY ${ADMIN_PASSWORD};"
 	mysql -u root -e "FLUSH PRIVILEGES;"
-	mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '${SUPER_PWD}'"
+	mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '${SUPER_PWD};'"
 	echo "Database created!"
 	killall mysqld
 else
