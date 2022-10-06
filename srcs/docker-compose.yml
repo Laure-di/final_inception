@@ -31,6 +31,7 @@
     build: requirements/mariadb
     image: mariadb
     container_name: mariadb
+	hostname: mariadb
     env_file: ./.env
     volumes:
      - db_vol:/var/lib/mysqld
