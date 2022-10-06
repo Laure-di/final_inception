@@ -1,16 +1,15 @@
 #!/bin/sh
 if [ ! -d /var/lib/mysql/wordpress ]; then
 	mysqld&
-	until mysqladmin ping;
-	do
+	until mysqladmin ping; do
 		echo "coucou"
 		sleep 2
 	done
-	mysql -u root -e "CREATE DATABASE IF NOT EXISTS wordpress;"
-	mysql -u root -e "CREATE USER IF NOT EXISTS '${ADMIN}'@'%' IDENTIFIED BY '${ADMIN_PASSWORD}';"
-	mysql -u root -e "GRANT USAGE ON wordpress.* TO '${ADMIN}'@'%' WITH GRANT OPTION;"
-	mysql -u root -e "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('${SUPER_PWD}')"
-	mysql -e "FLUSH PRIVILEGES;"
+	mysql -u root "CREATE DATABASE IF NOT EXISTS wordpress;"
+	mysql -u root "CREATE USER IF NOT EXISTS '${ADMIN}'@'%' IDENTIFIED BY '${ADMIN_PASSWORD}';"
+	mysql -u root "GRANT USAGE ON wordpress.* TO '${ADMIN}'@'%' WITH GRANT OPTION;"
+	mysql -u root "FLUSH PRIVILEGES;"
+	mysql -u root "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('${SUPER_PWD}')"
 	echo "Database created!"
 	killall mysqld
 else
