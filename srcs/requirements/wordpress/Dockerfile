@@ -2,11 +2,11 @@ FROM debian:buster
 
 RUN apt-get update
 
-RUN apt-get install -y php7.3-fpm php7.3-mysql php-common curl mariadb-client
+RUN apt-get install -y php7.4-fpm php7.4-mysql php7.4-common curl mariadb-client
 
 RUN mkdir -p /run/php/
 
-COPY www.conf /etc/php/7.3/fpm/pool.d/
+COPY www.conf /etc/php/7.4/fpm/pool.d/
 
 RUN	curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 
@@ -18,9 +18,9 @@ COPY wp.sh /root/wp.sh
 
 RUN chmod +x /root/wp.sh
 
-RUN ln -sf /dev/stdout /var/log/php7.3-fpm.access.log
+#RUN ln -sf /dev/stdout /var/log/php7.3-fpm.access.log
 
-RUN	 ln -sf /dev/stderr /var/log/php7.3-fpm.log
+#RUN	 ln -sf /dev/stderr /var/log/php7.3-fpm.log
 
 WORKDIR		/var/www/html/wordpress
 
