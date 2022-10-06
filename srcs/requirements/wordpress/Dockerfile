@@ -4,27 +4,20 @@ RUN apt-get update
 
 RUN apt-get install -y php-fpm php-mysql php-common curl mariadb-client
 
-RUN mkdir -p /run/php/
+FROM debian:buster
 
-COPY www.conf /etc/php/7.3/fpm/pool.d/
+RUN apt-get -y update && apt-get -y install wget && apt-get -y install mariadb-client && apt-get -y install php7.3-fpm php7.3-common php7.3-mysql
 
-RUN	curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+COPY wp.sh /tmp/
+COPY conf/www.conf /etc/php/7.3/fpm/pool.d/
 
-RUN chmod +x wp-cli.phar
+RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && chmod +x wp-cli.phar && cp wp-cli.phar /usr/bin/wp && mkdir -p /var/run/php/
 
-RUN cp wp-cli.phar /usr/local/bin/wp
+WORKDIR /var/www/html/wordpress
+#The WORKDIR instruction sets the working directory for any RUN, CMD, ENTRYPOINT, COPY and ADD instructions that follow it in the Dockerfile. If the WORKDIR doesn’t exist, it will be created even if it’s not used in any subsequent Dockerfile instruction.
+#https://docs.docker.com/engine/reference/builder/#workdir
 
-COPY wp.sh /root/wp.sh
+ENTRYPOINT ["bash", "/tmp/wp.sh"]
 
-RUN chmod +x /root/wp.sh
-
-#RUN ln -sf /dev/stdout /var/log/php7.3-fpm.access.log
-
-#RUN	 ln -sf /dev/stderr /var/log/php7.3-fpm.log
-
-WORKDIR		/var/www/html/wordpress
-
-ENTRYPOINT	["bash", "/root/wp.sh"]
-
-CMD	["php-fpm", "-F", "-R"]
+CMD ["php-fpm7.3", "-F", "-R"]
 
