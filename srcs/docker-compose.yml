@@ -2,7 +2,7 @@
  services:
 
   nginx:
-    build: ./requirements/nginx
+    build: requirements/nginx
     image: nginx
     container_name: nginx
     ports:
@@ -16,7 +16,7 @@
      - inception
     restart: on-failure
   wordpress:
-    build: ./requirements/wordpress
+    build: requirements/wordpress
     image: wordpress
     container_name: wordpress
     depends_on:
@@ -28,7 +28,7 @@
      - inception
     restart: on-failure
   mariadb:
-    build: ./requirements/mariadb
+    build: requirements/mariadb
     image: mariadb
     container_name: mariadb
     env_file: ./.env
