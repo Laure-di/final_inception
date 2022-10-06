@@ -1,5 +1,4 @@
 #!/bin/sh
-mysql_install_db
 if [ ! -d /var/lib/mysql/wordpress ]
 then
 	mysqld&
