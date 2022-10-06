@@ -5,7 +5,7 @@ if [ ! -d /var/lib/mysql/wordpress ]; then
 		echo "coucou"
 		sleep 2
 	done
-	mysql -u root "CREATE DATABASE IF NOT EXISTS wordpress;"
+	mysql -u root "create databas if not exists wordpress;"
 	mysql -u root "CREATE USER IF NOT EXISTS '$ADMIN'@'%' IDENTIFIED BY '$ADMIN_PASSWORD';"
 	mysql -u root "GRANT USAGE ON wordpress.* TO '$ADMIN'@'%' IDENTIFIED BY '$ADMIN_PASSWORD';"
 	mysql -u root "FLUSH PRIVILEGES;"
